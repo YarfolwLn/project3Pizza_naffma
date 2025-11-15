@@ -26,7 +26,6 @@ class PizzaPeter(
                 println("С вас 200 рублей за кофе")
                 coffeeSoldCount++
                 coffeeRevenue += 200.0
-                // Увеличиваем счетчик кофе для текущего типа пиццы
                 pizzaWithCoffee[currentPizzaType] = pizzaWithCoffee[currentPizzaType]!! + 1
             }
             "2" -> {
@@ -71,7 +70,6 @@ class PizzaPeter(
         println("Выручка за кофе: $coffeeRevenue")
         println("Итоговая выручка: $totalRevenue")
 
-        // Статистика по кофе
         val totalCoffeeOffers = coffeeSoldCount + coffeeRefusedCount
         if (totalCoffeeOffers > 0) {
             val boughtPercentage = (coffeeSoldCount.toDouble() / totalCoffeeOffers) * 100
@@ -80,7 +78,6 @@ class PizzaPeter(
             println("Купили кофе: $coffeeSoldCount (${"%.2f".format(boughtPercentage)}%)")
             println("Отказались от кофе: $coffeeRefusedCount (${"%.2f".format(refusedPercentage)}%)")
 
-            // Статистика по пиццам с кофе
             println("\nСтатистика по пиццам с кофе:")
             val totalCoffeeWithPizza = coffeeSoldCount
             if (totalCoffeeWithPizza > 0) {
