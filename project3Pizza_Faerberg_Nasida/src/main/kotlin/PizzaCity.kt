@@ -1,26 +1,33 @@
 abstract class PizzaCity(
-    val neapolitanPizzaPrice: Double, val romanPizzaPrice: Double,
-    val sicilianPizzaPrice: Double, val tyroleanPizzaPrice: Double
+    protected val neapolitanPizzaPrice: Double,
+    protected val romanPizzaPrice: Double,
+    protected val sicilianPizzaPrice: Double,
+    protected val tyroleanPizzaPrice: Double
 ) {
-    var neapolitanPizzaCount = 0
-    var romanPizzaCount = 0
-    var sicilianPizzaCount = 0
-    var tyroleanPizzaCount = 0
+    protected var neapolitanPizzaCount = 0
+    protected var romanPizzaCount = 0
+    protected var sicilianPizzaCount = 0
+    protected var tyroleanPizzaCount = 0
 
     abstract fun neapolitanPizzaSale()
     abstract fun romanPizzaSale()
     abstract fun sicilianPizzaSale()
     abstract fun tyroleanPizzaSale()
+    abstract fun showStatistics()
 
-    fun showStatistics() {
-        println("Продано сицилийской пиццы: $sicilianPizzaCount")
-        println("Продано неаполитанской пиццы: $neapolitanPizzaCount")
-        println("Продано римской пиццы: $romanPizzaCount")
-        println("Продано тирольской пиццы: $tyroleanPizzaCount")
+    protected fun getTotalPizzaRevenue(): Double {
+        return neapolitanPizzaCount * neapolitanPizzaPrice +
+                romanPizzaCount * romanPizzaPrice +
+                sicilianPizzaCount * sicilianPizzaPrice +
+                tyroleanPizzaCount * tyroleanPizzaPrice
+    }
 
-        val money = neapolitanPizzaCount * neapolitanPizzaPrice + romanPizzaCount * romanPizzaPrice +
-                sicilianPizzaCount * sicilianPizzaPrice + tyroleanPizzaCount * tyroleanPizzaPrice
-
-        println("Всего заработано денег: $money")
+    protected fun getPizzaStats(): String {
+        return """
+            Продано неаполитанской пиццы: $neapolitanPizzaCount
+            Продано римской пиццы: $romanPizzaCount
+            Продано сицилийской пиццы: $sicilianPizzaCount
+            Продано тирольской пиццы: $tyroleanPizzaCount
+        """.trimIndent()
     }
 }
