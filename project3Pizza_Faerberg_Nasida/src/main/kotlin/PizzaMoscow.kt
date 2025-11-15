@@ -56,7 +56,6 @@ class PizzaMoscow(
         println("Общая сумма скидок: $totalDiscount")
         println("Итоговая выручка (с учетом скидок): $totalRevenue")
 
-        // Статистика по чекам
         val totalChecks = checkShownCount + checkNotShownCount
         if (totalChecks > 0) {
             val shownPercentage = (checkShownCount.toDouble() / totalChecks) * 100
