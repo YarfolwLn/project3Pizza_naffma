@@ -153,7 +153,6 @@ class PizzaKazan(
             println("Купили кофе: $coffeeSoldCount (${"%.2f".format(boughtPercentage)}%)")
             println("Отказались от кофе: $coffeeRefusedCount (${"%.2f".format(refusedPercentage)}%)")
 
-            // Статистика по пиццам с кофе
             println("\nСтатистика по пиццам с кофе:")
             val totalCoffeeWithPizza = coffeeSoldCount
             if (totalCoffeeWithPizza > 0) {
